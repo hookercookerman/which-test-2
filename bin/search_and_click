@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+require "bundler/setup"
+require "which"
+
+searcher = Which::GoogleWebSearcher.new
+if page = searcher.search(term: 'which university')
+  puts page.body
+  puts searcher.click_first(page: page)
+end
